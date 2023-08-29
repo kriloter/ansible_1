@@ -1,31 +1,20 @@
 ---
 
-- hosts: ubuntu
-  become: yes
+- hosts: all
   tasks:
-
   - name: Update all packages
+    become: true
+    become_method: "{{ 'su' if ansible_distribution == 'Debian' else 'sudo' }}"
     apt:
       name: "*"
       state: latest
       update_cache: yes
-
-- hosts: debian
-  become: yes
-  become_method: su
-  tasks:
+    when: ansible_distribution in ["Ubuntu", "Debian"]
 
   - name: Update all packages
-    apt:
-      name: "*"
-      state: latest
-      update_cache: yes
-
-- hosts: redhat
-  become: yes
-  tasks:
-
-  - name: Update all packages
+    become: true
+    become_method: sudo
     dnf:
       name: "*"
       state: latest
+    when: ansible_distribution in ["Rocky", "RedHat"]

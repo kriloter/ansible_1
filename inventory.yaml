@@ -1,12 +1,4 @@
-ubuntu:
-  hosts:
-    ubuntu1:
-
-debian:
-  hosts:
-    debian1:
-
-redhat:
-  hosts:
-    rhel:
-    rocky1:
+ubuntu1
+debian1
+rocky1
+rhel
