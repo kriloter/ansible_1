@@ -1,10 +1,12 @@
-virtualmachines:
+ubuntu:
   hosts:
-    vm01:
-      ansible_host: debian1
-    vm02:
-      ansible_host: rocky1
-    vm03:
-      ansible_host: ubuntu1
-    vm04:
-      ansible_host: rhel
+    ubuntu1:
+
+debian:
+  hosts:
+    debian1:
+
+redhat:
+  hosts:
+    rhel:
+    rocky1:
