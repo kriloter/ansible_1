@@ -5,16 +5,7 @@
   - name: Update all packages
     become: true
     become_method: "{{ 'su' if ansible_distribution == 'Debian' else 'sudo' }}"
-    apt:
+    package:
       name: "*"
       state: latest
       update_cache: yes
-    when: ansible_distribution in ["Ubuntu", "Debian"]
-
-  - name: Update all packages
-    become: true
-    become_method: sudo
-    dnf:
-      name: "*"
-      state: latest
-    when: ansible_distribution in ["Rocky", "RedHat"]
